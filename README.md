@@ -8,7 +8,7 @@ Typical block breaking game but with Roguelite mechanic
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          All assets utilized within this project have been acquired with legal standards.
-         
+
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          このプロジェクトは、2023年8月18日に株式会社オープンセサミ・テクノロジーのインターンシップの課題として作成されました。最初の課題はごく普通のブロック崩しゲームを作成することでしたが、オリジナルのブロック崩しゲームと差別できるように私はいくつかの機能を追加しました。
@@ -17,3 +17,5 @@ Typical block breaking game but with Roguelite mechanic
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          このプロジェクト内で利用されているすべてのアセットは、法的基準に従って取得されています。
+
+<br>Gameplay・ゲームプレイ動画: https://drive.google.com/drive/u/1/folders/1YzyqWY3ZRjtKIwiej6L3Fxw_up-E_vbk
