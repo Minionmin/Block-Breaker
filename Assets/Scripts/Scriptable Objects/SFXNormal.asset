@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d15a53be19691f428d68f5aace7ad67, type: 3}
+  m_Name: SFXNormal
+  m_EditorClassIdentifier: 
+  blockDestroyedSFX: {fileID: 8300000, guid: 7c04f661f3c616b408f613b44a056be3, type: 3}
+  explodeBlockDestroyedSFX: {fileID: 8300000, guid: 0dcea0d6ad8094744892194718582286,
+    type: 3}
+  teleportSFX: {fileID: 8300000, guid: 45059710770b93f43a035cac074e89d1, type: 3}
+  teleportDoorDestroyedSFX: {fileID: 8300000, guid: 9bef56f1ba45e0147b919686c08261d9,
+    type: 3}
+  bossHitSFX: {fileID: 8300000, guid: 3551f70abda75134f8b4d026460fce61, type: 3}
+  textSFX: {fileID: 8300000, guid: 5722acea35ff9fd4aba6220e1d23c9d9, type: 3}

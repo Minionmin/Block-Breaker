@@ -9,9 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5774611044551339246}
-  - component: {fileID: 8355713198313803075}
   - component: {fileID: 7689686417365037162}
-  - component: {fileID: 6141299426094955323}
   m_Layer: 0
   m_Name: GameHandler
   m_TagString: Untagged
@@ -28,26 +26,12 @@ Transform:
   m_GameObject: {fileID: 7249010154960438929}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.482194, y: 24.87549, z: -2.689005}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8355713198313803075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7249010154960438929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd39a1e1a4cd89040a304d9e5ee92f00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeText: {fileID: 0}
-  life: 3
 --- !u!114 &7689686417365037162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,18 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 0}
-  blocksList: []
---- !u!114 &6141299426094955323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7249010154960438929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e36efc56792e9be47a00dd89d22dfaab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  letterPerSecond: 7
-  dialogueText: {fileID: 0}
+  blocksList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

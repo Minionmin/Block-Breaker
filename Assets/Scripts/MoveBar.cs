@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class MoveBar : MonoBehaviour
 {
-    [SerializeField] private float accel;
-    private Rigidbody rb;
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
+    [SerializeField] private float movespeed;
+    [SerializeField] private LayerMask wallLayerMask;
 
     void Update()
     {
-        rb.AddForce(Vector3.right * Input.GetAxis("Horizontal") * accel, ForceMode.Acceleration);
+        float moveDistance = movespeed * Time.deltaTime;
+        Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
+
+        float castDistance = 2.5f;
+        bool canMove = !Physics.Raycast(transform.position, moveDirection, castDistance, wallLayerMask);
+
+        if (canMove)
+        {
+            transform.position += moveDirection * moveDistance;
+        }
     }
 
 }

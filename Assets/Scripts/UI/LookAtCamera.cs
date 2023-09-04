@@ -7,20 +7,33 @@ public class LookAtCamera : MonoBehaviour
     public enum CameraMode
     {
         None,
-        LookAtCamera
+        LookAt,
+        LookAtInverted,
+        CameraForward,
+        CameraForwardInverted
     }
 
     [SerializeField] private CameraMode mode;
 
-    private void Update()
+    private void LateUpdate()
     {
         switch (mode)
         {
             default:
             case CameraMode.None:
                 break;
-            case CameraMode.LookAtCamera:
-                transform.LookAt(Camera.main.transform.position);
+            case CameraMode.LookAt:
+                transform.LookAt(Camera.main.transform);
+                break;
+            case CameraMode.LookAtInverted:
+                Vector3 dirFromCamera = transform.position - Camera.main.transform.position;
+                transform.LookAt(transform.position + dirFromCamera);
+                break;
+            case CameraMode.CameraForward:
+                transform.forward = Camera.main.transform.forward;
+                break;
+            case CameraMode.CameraForwardInverted:
+                transform.forward = -Camera.main.transform.forward;
                 break;
         }
     }

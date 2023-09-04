@@ -21,6 +21,8 @@ public class GameOverHandler : MonoBehaviour
     {
         if(Input.GetButtonDown("Jump"))
         {
+            LifeManager.Instance.SetLife(3);
+            LifeManager.Instance.UpdateVisual();
             Loader.LoadFailedScene();
         }
     }

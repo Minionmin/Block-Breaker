@@ -19,22 +19,19 @@ public class GameHandler : MonoBehaviour
     [SerializeField] private List<GameObject> blocksList;
 
     private States state;
-    private DialogueHandler dialogueHandler;
 
     private void Awake()
     {
         Instance = this;
-        dialogueHandler = GetComponent<DialogueHandler>();
     }
 
     private void Start()
     {
-        state = States.WaitToStart;
+        ToWaitToStartState();
     }
 
     private void Update()
     {
-        
         switch (state)
         {
             default:
@@ -76,13 +73,15 @@ public class GameHandler : MonoBehaviour
     {
         ToHasWonState();
         ball.rb.velocity = Vector3.zero;
-        ClearUI.Instance.Show();
         ball.gameObject.SetActive(false);
-        StartCoroutine(dialogueHandler.TypeDialogue("Clear!!!", false));
+        BuffUI.Instance.Show();
     }
 
     public void ToWaitToStartState()
     {
+        ClearUI.Instance.Hide();
+        NextMatchUI.Instance.Hide();
+        BuffUI.Instance.Hide();
         state = States.WaitToStart;
     }
 

@@ -7,13 +7,16 @@ public class LifeManager : MonoBehaviour
 {
     public static LifeManager Instance { get; private set; }
 
-    [SerializeReference] private TextMeshProUGUI lifeText;
+    private GameObject mainUI;
+    private TextMeshProUGUI lifeText;
 
     [SerializeField] private int life;
 
     private void Awake()
     {
         Instance = this;
+
+        lifeText = GameObject.FindGameObjectWithTag("LifeTextTag").GetComponent<TextMeshProUGUI>();
     }
 
     private void Start()
@@ -34,5 +37,10 @@ public class LifeManager : MonoBehaviour
     public int GetLife()
     {
         return life;
+    }
+
+    public void SetLife(int life)
+    {
+        this.life = life;
     }
 }
