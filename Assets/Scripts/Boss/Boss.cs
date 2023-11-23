@@ -6,8 +6,6 @@ using System;
 
 public class Boss : MonoBehaviour, IHitInterface, ITeleportInterface
 {
-    //public event Action OnGettingHit;
-
     private const string SUMMON_TAG = "Summon";
 
     [SerializeField] private int hitToDestroy;
@@ -18,13 +16,13 @@ public class Boss : MonoBehaviour, IHitInterface, ITeleportInterface
     public Transform destinationTransform { get; set; }
     private Collision hitCollision;
     private HitUI hitUI;
-    private HPBarUI hpBarUI;
+    private BarUI hpBarUI;
     private GameObject summonObj;
 
     private void Awake()
     {
         hitUI = GetComponentInChildren<HitUI>();
-        hpBarUI = GetComponentInChildren<HPBarUI>();
+        hpBarUI = GetComponentInChildren<BarUI>();
     }
 
     private void Start()
@@ -56,12 +54,6 @@ public class Boss : MonoBehaviour, IHitInterface, ITeleportInterface
 
         if (GetHitToDestroy() <= 0)
         {
-            /*
-            base.PlayCrashEffect(hitCollision.GetContact(0).point, sfxs.blockDestroyedSFX);
-            hitCollision = null;
-            base.DestroyBlock();
-            */
-
             hitCollision = null;
             DestroyBoss();
         }
@@ -69,7 +61,7 @@ public class Boss : MonoBehaviour, IHitInterface, ITeleportInterface
         {
             // UI visual doesn't need to know about logic
             hitUI.SetHitText(hitToDestroy);
-            hpBarUI.UpdateHPSliderUI(hitToDestroy, maxHitToDestroy);
+            hpBarUI.UpdateSliderUI(hitToDestroy, maxHitToDestroy);
         }
     }
 
@@ -117,6 +109,6 @@ public class Boss : MonoBehaviour, IHitInterface, ITeleportInterface
 
         // UI
         hitUI.SetHitText(hitToDestroy);
-        hpBarUI.UpdateHPSliderUI(hitToDestroy, maxHitToDestroy);
+        hpBarUI.UpdateSliderUI(hitToDestroy, maxHitToDestroy);
     }
 }

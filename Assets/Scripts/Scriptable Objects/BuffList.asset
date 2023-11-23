@@ -12,13 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed09ec2512226254083c80b944f3ce4c, type: 3}
   m_Name: BuffList
   m_EditorClassIdentifier: 
-  buffTexts:
-  - Slightly increase the bar size
-  - Increase the bar size
-  - Greatly increase the bar size
-  - Increase your maximum life and heal you by 1
-  - Increase your maximum life and heal you by 2
-  - Increase your maximum life and heal you by 2
-  - Decrease boss life by 2
-  - Decrease boss life by 3
-  - Decrease boss life by 4
+  buffs:
+  - {fileID: 1066555652940000447, guid: 9f778b4093174c14aa3eb24fa3cc0674, type: 3}
+  - {fileID: 1066555652940000447, guid: 9f778b4093174c14aa3eb24fa3cc0674, type: 3}
+  - {fileID: 1066555652940000447, guid: 9f778b4093174c14aa3eb24fa3cc0674, type: 3}
+  - {fileID: 2159151059014744193, guid: b68563e9a86b6244b92a86d54856369b, type: 3}
+  - {fileID: 2159151059014744193, guid: b68563e9a86b6244b92a86d54856369b, type: 3}
+  - {fileID: 175818783261495997, guid: 8a7c1fb29a493f04ba7511f8c01d14d8, type: 3}
+  - {fileID: 2959878044217532020, guid: d1c0e219ce738394f94313603c7f8063, type: 3}
+  - {fileID: 2959878044217532020, guid: d1c0e219ce738394f94313603c7f8063, type: 3}
+  - {fileID: 2959878044217532020, guid: d1c0e219ce738394f94313603c7f8063, type: 3}
+  - {fileID: 4028552459224951185, guid: 897f40d3ac5150f4393bc38f22a668c2, type: 3}
+  - {fileID: 4028552459224951185, guid: 897f40d3ac5150f4393bc38f22a668c2, type: 3}
+  - {fileID: 4445098173168740098, guid: d699fbbfe0af50b41a4dd927fa2be582, type: 3}
+  - {fileID: 1470656179639962868, guid: 8edd62f03d1326842a4cf0d331b57104, type: 3}
+  - {fileID: 1470656179639962868, guid: 8edd62f03d1326842a4cf0d331b57104, type: 3}
+  - {fileID: 1470656179639962868, guid: 8edd62f03d1326842a4cf0d331b57104, type: 3}
+  - {fileID: 2668156503660619179, guid: 37770630209ce564383ce9e4c1ab506f, type: 3}
+  - {fileID: 2668156503660619179, guid: 37770630209ce564383ce9e4c1ab506f, type: 3}
+  - {fileID: 3051283207843364283, guid: faaf79343a5dc384e8f02660b3ca73af, type: 3}

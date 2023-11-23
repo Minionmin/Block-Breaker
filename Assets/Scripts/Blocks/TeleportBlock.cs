@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class TeleportBlock : Block, ITeleportInterface
 {
-    [SerializeField] private Transform teleportDestination;
+    public Transform teleportDestination;
     private TeleportDoor teleportDoor;
 
     public Transform destinationTransform { get; set; }
 
     protected override void Start()
     {
-        teleportDoor = teleportDestination.GetComponentInParent<TeleportDoor>();
         destinationTransform = teleportDestination;
+        teleportDoor = teleportDestination.GetComponentInParent<TeleportDoor>();
         base.Start();
     }
 

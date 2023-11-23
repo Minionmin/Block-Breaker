@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TeleportDoor : MonoBehaviour
 {
-    [SerializeField] public List<GameObject> teleportBlocks = new List<GameObject>();
+    public List<GameObject> teleportBlocks = new List<GameObject>();
     [SerializeField] public GameObject teleportDoorCloseEffect;
 
     public bool HasNoBlockLeft()
@@ -17,6 +17,12 @@ public class TeleportDoor : MonoBehaviour
     {
         SFXHandler.Instance.PlaySFX(SFXHandler.Instance.sfxSO.teleportDoorDestroyedSFX, Camera.main.transform.position);
         GameObject newObject = Instantiate(teleportDoorCloseEffect, transform.position, teleportDoorCloseEffect.transform.rotation);
-        Destroy(gameObject);
+
+        // Destroy this portal only in normal mode
+        if (GameHandler.Instance.GetGamemode() == GameHandler.Gamemode.Normal)
+        {
+            Destroy(gameObject);
+        }
+
     }
 }

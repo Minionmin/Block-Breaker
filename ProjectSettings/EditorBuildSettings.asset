@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Boss.unity
     guid: db5d41ede5428594cb313c5afd27fab6
   - enabled: 1
+    path: Assets/Scenes/Levels/Endless.unity
+    guid: 5bc6e99623c933c4895f9f498f6e491c
+  - enabled: 1
     path: Assets/Scenes/GameOverScene.unity
     guid: da34b78a3210e50488247c9bf5841d56
   m_configObjects: {}

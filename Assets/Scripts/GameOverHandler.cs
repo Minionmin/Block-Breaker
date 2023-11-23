@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,9 +9,8 @@ using UnityEngine.UI;
 
 public class GameOverHandler : MonoBehaviour
 {
-    private const string gameScene = "SampleScene";
-
     [SerializeField] private Button exitButton;
+    [SerializeField] private Image fadePlane;
 
     private void Start()
     {
@@ -21,9 +21,13 @@ public class GameOverHandler : MonoBehaviour
     {
         if(Input.GetButtonDown("Jump"))
         {
-            LifeManager.Instance.SetLife(3);
-            LifeManager.Instance.UpdateVisual();
-            Loader.LoadFailedScene();
+            fadePlane.DOFade(1.0f, 1.0f)
+                .onComplete = () =>
+                {
+                    SceneManager.LoadScene(Loader.LoaderScene.MainMenu.ToString());
+                    DontDestroy doNotDestroyParent = GameObject.Find("Do Not Destroy").GetComponent<DontDestroy>();
+                    Destroy(doNotDestroyParent.gameObject);
+                };
         }
     }
 }

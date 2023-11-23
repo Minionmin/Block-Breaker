@@ -23,23 +23,6 @@ public class ArmoredBlock : Block, IHitInterface
     protected override void OnCollisionEnter(Collision collision)
     {
         hitCollision = collision;
-        // Before implementing IHitInterface
-        /*
-        if(hitToDestroy > 0)
-        {
-            hitToDestroy--;
-            if(hitToDestroy <= 0)
-            {
-                base.PlayCrashEffect(collision.GetContact(0).point, sfxs.blockDestroyedSFX);
-                base.DestroyBlock();
-            }
-            else
-            {
-                // UI visual doesn't need to know about logic
-                hitUI.SetHitText(hitToDestroy);
-            }
-        }
-        */
     }
 
     // IHitInterface
@@ -69,4 +52,10 @@ public class ArmoredBlock : Block, IHitInterface
         }
     }
     // ## After Implementing IHitInterface 
+
+    public void SetHit(int val)
+    {
+        hitToDestroy = val;
+        hitUI.SetHitText(hitToDestroy);
+    }
 }

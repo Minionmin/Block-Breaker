@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ed814d3f4a881419390057c6c1f4d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpGauge: {fileID: 5475155443503651193}
+  gauge: {fileID: 5475155443503651193}
 --- !u!1 &1645395598929830844
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,7 +565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6f6150538adf4489773767db841cbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitToDestroy: 20
+  hitToDestroy: 14
   teleportEffect: {fileID: 6155761938219226631, guid: a64dd4bd7e0b5d045975a47fed6311d7,
     type: 3}
   teleportDestinations:

@@ -21,6 +21,7 @@ public static class Loader
         Level3,
         Level4,
         Boss,
+        Endless,
         GameOverScene
     }
 
@@ -86,7 +87,7 @@ public static class Loader
             Debug.LogError("Not a valid Level");
         }
 
-        LoaderScene nextScene = LoaderScene.SampleScene;
+        LoaderScene nextScene = LoaderScene.MainMenu;
         return nextScene;
     }
 }

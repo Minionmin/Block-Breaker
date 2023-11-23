@@ -33,7 +33,6 @@ public class BallStart : MonoBehaviour
         {
             hitable.GetHit();
         }
-        // ## After Implementing IHitInterface 
 
         // Object might have been destroyed after get hit
         if (collision.gameObject == null) return;
@@ -43,8 +42,8 @@ public class BallStart : MonoBehaviour
         {
             teleportable.TeleportObjectToAnother(this.gameObject.transform);
         }
-        // ## After Implementing ITeleportInterface 
 
+        // If ball hit explosion block
         if (hasExploded)
         {
             int targetLayerMaskBit = collision.gameObject.layer;
@@ -58,6 +57,7 @@ public class BallStart : MonoBehaviour
         }
         else
         {
+            // Make ball faster every collision
             rb.velocity *= 1.01f;
 
             if (Mathf.Abs(rb.velocity.x) < 5)
