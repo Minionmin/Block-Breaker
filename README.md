@@ -19,3 +19,4 @@ Typical block breaking game but with Roguelite mechanic
          このプロジェクト内で利用されているすべてのアセットは、法的基準に従って取得されています。
 
 <br>Gameplay・ゲームプレイ動画: https://drive.google.com/drive/u/1/folders/1YzyqWY3ZRjtKIwiej6L3Fxw_up-E_vbk
+<br>Youtube Playlist: https://www.youtube.com/watch?v=9FnlJEKZ_k0&list=PLr6hcxmlLCqom3oW5iqFK1rWxaW7fY7oy&ab_channel=ChaichumphonPhansuwan
