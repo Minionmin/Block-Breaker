@@ -1,64 +1,27 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TeleportBlock : Block, ITeleportInterface
 {
-    public Transform teleportDestination;
-    private TeleportDoor teleportDoor;
-
-    public Transform destinationTransform { get; set; }
-
     protected override void Start()
     {
-        destinationTransform = teleportDestination;
-        teleportDoor = teleportDestination.GetComponentInParent<TeleportDoor>();
         base.Start();
     }
 
-    // Before implementing ITeleportInterface
-    /*
-    private void TeleportBall(Collision collision)
+    public override void GetHit()
     {
-        if (collision.gameObject.TryGetComponent<BallStart>(out BallStart ball))
-        {
-            teleportDoor.teleportBlocks.Remove(gameObject);
-            ball.transform.position = new Vector3 (teleportDestination.position.x, ball.transform.position.y, teleportDestination.position.z);
-            PlayCrashEffect(teleportDestination.position, sfxs.teleportSFX);
+        DropItem();
+        TeleportTo(GameHandler.Instance.GetTeleportDestination().transform);
 
-            if (teleportDoor.HasNoBlockLeft())
-            {
-                teleportDoor.PlayTeleportDoorCloseEffect();
-            }
-        }
-        else
-        {
-            return;
-        }
+        // Play teleport VFX at the block
+        PlayCrashEffect(transform.position, sfxs.blockDestroyedSFX);
+        GameHandler.Instance.DestroyBlock(this, true);
     }
-    
-    protected override void OnCollisionEnter(Collision collision)
+
+    /// <summary> Move this object to target position </summary>
+    public void TeleportTo(Transform targetTransform)
     {
-        DestroyBlock();
+        // Play teleport VFX at target portal
+        PlayCrashEffect(targetTransform.position, sfxs.teleportSFX);
+        GameHandler.Instance.ball.transform.position = new Vector3(targetTransform.position.x, 0f, targetTransform.position.z);
     }
-    */
-
-
-    // ITeleportInterface
-    // After implementing ITeleportInterface
-    public void TeleportObjectToAnother(Transform obj)
-    {
-        teleportDoor.teleportBlocks.Remove(gameObject);
-
-        obj.position = new Vector3(destinationTransform.position.x, obj.position.y, destinationTransform.position.z);
-
-        PlayCrashEffect(destinationTransform.position, sfxs.teleportSFX);
-
-        if (teleportDoor.HasNoBlockLeft())
-        {
-            teleportDoor.PlayTeleportDoorCloseEffect();
-        }
-    }
-    // ## After implementing ITeleportInterface
 }

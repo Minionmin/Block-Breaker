@@ -12,25 +12,25 @@ EditorBuildSettings:
     path: Assets/Scenes/LoadingScene.unity
     guid: 3326304ef3ff77a47bcdc3be4c3df163
   - enabled: 1
-    path: Assets/Scenes/Levels/SampleScene.unity
+    path: Assets/Scenes/Levels/LevelA/LevelA0.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Levels/Level1.unity
+    path: Assets/Scenes/Levels/LevelA/LevelA1.unity
     guid: f5497f3a7a48eba43806c5bafe6d615d
   - enabled: 1
-    path: Assets/Scenes/Levels/Level2.unity
+    path: Assets/Scenes/Levels/LevelA/LevelA2.unity
     guid: 8827cacee71c6644f80f12c604654330
   - enabled: 1
-    path: Assets/Scenes/Levels/Level3.unity
+    path: Assets/Scenes/Levels/LevelA/LevelA3.unity
     guid: bd756193d6f774b4ea5b81cc2108ca7d
   - enabled: 1
-    path: Assets/Scenes/Levels/Level4.unity
+    path: Assets/Scenes/Levels/LevelA/LevelA4.unity
     guid: 18cf9ade4248b8e44acd4a5901fa310a
   - enabled: 1
-    path: Assets/Scenes/Levels/Boss.unity
+    path: Assets/Scenes/Levels/LevelA/ABoss.unity
     guid: db5d41ede5428594cb313c5afd27fab6
   - enabled: 1
-    path: Assets/Scenes/Levels/Endless.unity
+    path: Assets/Scenes/Endless.unity
     guid: 5bc6e99623c933c4895f9f498f6e491c
   - enabled: 1
     path: Assets/Scenes/GameOverScene.unity

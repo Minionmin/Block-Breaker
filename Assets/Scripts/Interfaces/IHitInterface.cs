@@ -4,8 +4,6 @@ using UnityEngine;
 
 public interface IHitInterface
 {
-    public int GetHitToDestroy();
-
     public void GetHit();
 
 }

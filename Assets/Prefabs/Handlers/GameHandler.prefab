@@ -44,7 +44,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d7730875f33b94894f91c3d483c77c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blocksList: []
-  spawnPointTransform: {fileID: 0}
+  blockNum: 24
+  fieldWidth: 6
+  fieldHeight: 4
+  barSpawnPoint: {fileID: 0}
+  ball: {fileID: 0}
+  bar: {fileID: 0}
+  barTransform: {fileID: 0}
   blockParentTransform: {fileID: 0}
-  blockTypes: []
+  SO_blocktypes: {fileID: 11400000, guid: 0000113cd59d6cf4c9895e690d59558b, type: 2}
+  portalSingle: {fileID: 4281953329460708043, guid: a21d8592719080846ab8d1cc7d1a8dea,
+    type: 3}
+  portalParent: {fileID: 0}
+  minPortalXOffset: 4
+  maxPortalXOffset: 14
+  maxPortalZOffset: 3
+  minPortalNumber: 1
+  maxPortalNumber: 4

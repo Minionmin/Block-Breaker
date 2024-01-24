@@ -1,114 +1,111 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using System;
-
 public class Boss : MonoBehaviour, IHitInterface, ITeleportInterface
 {
-    private const string SUMMON_TAG = "Summon";
+    /// <summary> Boss's current hp </summary>
+    [SerializeField] private int bossHP;
+    /// <summary> Boss's max hp </summary>
+    private int bossMaxHP;
 
-    [SerializeField] private int hitToDestroy;
+    /// <summary> Teleport VFX </summary>
     [SerializeField] private GameObject teleportEffect;
-    [SerializeField] private Transform[] teleportDestinations;
 
-    private int maxHitToDestroy;
-    public Transform destinationTransform { get; set; }
-    private Collision hitCollision;
-    private HitUI hitUI;
-    private BarUI hpBarUI;
-    private GameObject summonObj;
+    /// <summary> Boss's current hp text </summary>
+    [SerializeField] private HitUI hitUI;
+    /// <summary> Boss's current hp bar </summary>
+    [SerializeField] private BarUI hpBarUI;
 
-    private void Awake()
-    {
-        hitUI = GetComponentInChildren<HitUI>();
-        hpBarUI = GetComponentInChildren<BarUI>();
-    }
+    /// <summary> Summon's object </summary>
+    [SerializeField] private GameObject summonParent;
+
+    /// <summary> Has boss summoned? flag </summary>
+    private bool hasSummoned = false;
 
     private void Start()
     {
+        // Put the initialization in Start because it needs to interact with other classes
         Initialize();
-    }
-
-    protected void OnCollisionEnter(Collision collision)
-    {
-        hitCollision = collision;
-    }
-
-    public int GetHitToDestroy()
-    {
-        return hitToDestroy;
     }
 
     public void GetHit()
     {
-        if (hitToDestroy > 0)
+        // If boss gets hit
+        if (bossHP > 0)
         {
-            hitToDestroy -= 1;
+            // Decrease it's life 
+            bossHP -= 1;
+
+            // Then teleport ball to random portals
+            TeleportTo(GameHandler.Instance.GetTeleportDestination().transform);
+
+            // Camera shake effect when teleported the ball
+            CameraManager.Instance.Shake(0.3f, 0.5f, 30);
         }
 
-        if(GetHitToDestroy() >= 0 && GetHitToDestroy() <= 10)
+        // If boss hasn't summoned yet and boss's hp is less than or equal to 10
+        if(!hasSummoned && GetHitToDestroy() >= 0 && GetHitToDestroy() <= 10)
         {
-            summonObj.SetActive(true);
+            summonParent.SetActive(true);
         }
 
+        // If boss hp less than or equal to 0, destroy boss object
         if (GetHitToDestroy() <= 0)
         {
-            hitCollision = null;
             DestroyBoss();
         }
         else
         {
             // UI visual doesn't need to know about logic
-            hitUI.SetHitText(hitToDestroy);
-            hpBarUI.UpdateSliderUI(hitToDestroy, maxHitToDestroy);
+            // Update boss hp text
+            hitUI.SetHitText(bossHP);
+            // Update boss bar
+            hpBarUI.UpdateSliderUI(bossHP, bossMaxHP);
         }
     }
 
+    /// <summary> When boss hp = 0, destroy this object and move to won state </summary>
     private void DestroyBoss()
     {
         GameHandler.Instance.RemoveObject(gameObject);
-        if (GameHandler.Instance.IsNoBlockLeft())
+        if (GameHandler.Instance.HasNoBlockLeft())
         {
             GameHandler.Instance.HasWon();
         }
     }
 
-    public void TeleportObjectToAnother(Transform obj)
+    /// <summary> Teleport ball to random portal when boss gets hit </summary>
+    public void TeleportTo(Transform targetPortal)
     {
-        Transform randomDestinationResult = teleportDestinations[UnityEngine.Random.Range(0, teleportDestinations.Length)];
+        // Teleport ball
+        GameObject teleportVFX = Instantiate(teleportEffect, GameHandler.Instance.ball.transform.position, teleportEffect.transform.rotation);
+        GameHandler.Instance.ball.transform.position = targetPortal.position;
 
-        obj.position = new Vector3(randomDestinationResult.position.x, obj.position.y, randomDestinationResult.position.z);
-
-        GameObject newObject = Instantiate(teleportEffect, randomDestinationResult.position, teleportEffect.transform.rotation);
+        // Teleport effect
+        GameObject newObject = Instantiate(teleportEffect, targetPortal.position, teleportEffect.transform.rotation);
         SFXHandler.Instance.PlaySFX(SFXHandler.Instance.sfxSO.teleportSFX, Camera.main.transform.position);
     }
 
+    /// <summary> Initializing boss variables </summary>
     private void Initialize()
     {
-        // Summon
-        Transform[] transforms = gameObject.GetComponentsInChildren<Transform>();
-        GameObject[] objects = new GameObject[transforms.Length];
+        // Hide summons
+        summonParent.SetActive(false);
 
-        for(int i = 0; i < transforms.Length; i++)
-        {
-            objects[i] = transforms[i].gameObject;
-        }
+        // Generate portal for this boss gimmick
+        GameHandler gameHandler = GameHandler.Instance;
+        GameHandler.Instance.GeneratePortal(gameHandler.minPortalXOffset, gameHandler.maxPortalXOffset, gameHandler.maxPortalZOffset, 
+            gameHandler.minPortalNumber, gameHandler.maxPortalNumber, false);
 
-        foreach (GameObject obj in objects)
-        {
-            if (obj.gameObject.tag == SUMMON_TAG)
-            {
-                summonObj = obj;
-                summonObj.SetActive(false);
-            }
-        }
+        // Initialize boss hp
+        bossMaxHP = bossHP;
 
-        // Hp
-        maxHitToDestroy = hitToDestroy;
+        // Initialize UI
+        hitUI.SetHitText(bossHP);
+        hpBarUI.UpdateSliderUI(bossHP, bossMaxHP);
 
-        // UI
-        hitUI.SetHitText(hitToDestroy);
-        hpBarUI.UpdateSliderUI(hitToDestroy, maxHitToDestroy);
+        // Add this boss to the block list
+        GameHandler.Instance.AddBlockToList(gameObject, GameHandler.Instance.blockList);
     }
+
+    /// <summary> Return boss current HP (as hit)</summary>
+    public int GetHitToDestroy() { return bossHP; }
 }

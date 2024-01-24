@@ -215,6 +215,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3077378911365727274, guid: 2cbcd6ea5223c43459a22ba3168679ce,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 3077378911365727274, guid: 2cbcd6ea5223c43459a22ba3168679ce,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 3077378911365727274, guid: 2cbcd6ea5223c43459a22ba3168679ce,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 3077378911365727274, guid: 2cbcd6ea5223c43459a22ba3168679ce,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098300924488870429, guid: 2cbcd6ea5223c43459a22ba3168679ce,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098300924488870429, guid: 2cbcd6ea5223c43459a22ba3168679ce,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098300924488870429, guid: 2cbcd6ea5223c43459a22ba3168679ce,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098300924488870429, guid: 2cbcd6ea5223c43459a22ba3168679ce,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.4627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098300924488870429, guid: 2cbcd6ea5223c43459a22ba3168679ce,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098300924488870429, guid: 2cbcd6ea5223c43459a22ba3168679ce,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190198
+      objectReference: {fileID: 0}
     - target: {fileID: 3848093608434062721, guid: 2cbcd6ea5223c43459a22ba3168679ce,
         type: 3}
       propertyPath: m_Name
@@ -224,6 +274,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EndlessLevelLabel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6338872382057794177, guid: 2cbcd6ea5223c43459a22ba3168679ce,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6338872382057794177, guid: 2cbcd6ea5223c43459a22ba3168679ce,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

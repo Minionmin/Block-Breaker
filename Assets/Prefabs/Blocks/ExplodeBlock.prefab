@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5640676819418233466}
   - component: {fileID: 5772110138451758191}
   - component: {fileID: 5211837740444621266}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ExplodeBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b782c4ee4a73a848a428c088f9f8bac, type: 2}
+  - {fileID: 2100000, guid: 654122078f6a1104d929fb88d1a437bd, type: 2}
+  - {fileID: 2100000, guid: 1dfefe4ddb006174eac0f1a4ae15647d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,7 +105,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.2, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5211837740444621266
 MonoBehaviour:
@@ -118,6 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d26df49af69dd8b4eb3352a0d58f33d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crashEffectObject: {fileID: 5227694520853882130, guid: 6ed6f381dba5fc7468262f1aca9c3e80,
-    type: 3}
-  explosionSpeed: 20
+  crashEffectObject: {fileID: 130848, guid: 9f13518d45dc2074182c4a5d0256116b, type: 3}
+  itemDropRate: 7
+  explosionSpeedMultiplier: 1.8

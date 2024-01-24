@@ -3,17 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class BuffUI : MonoBehaviour
 {
     public static BuffUI Instance { get; private set; }
 
+    /// <summary> Preemptively prepared buff data </summary>
     [SerializeField] private SO_Buffs buffsSO;
+
+    /// <summary> 3 buff buttons </summary>
     [SerializeField] private List<Button> buffButtons;
+
+    /// <summary> Buff description </summary>
     [SerializeField] private List<TextMeshProUGUI> buffTextLabels;
 
+    /// <summary> List of buffs take from prepared scriptable object </summary>
     List<Buff> _buffList = new List<Buff>();
 
     private void Awake()
@@ -81,7 +86,7 @@ public class BuffUI : MonoBehaviour
             Buff dummyBuff = dummyBuffObject.GetComponent<Buff>();
 
             // Assigning buff information into the button
-            // Purposely leave created buff objects as they are because they're going to get destroyed anywhere
+            // Purposely leave created buff objects as they are because they're going to get destroyed anyway
             // when the scene is changed
             buffTextLabels[i].text = dummyBuff.buffDesc;
             buffButtons[i].onClick.AddListener(() =>
@@ -90,7 +95,7 @@ public class BuffUI : MonoBehaviour
                 dummyBuff.Apply();
                 _buffList.Remove(_buffList[randomIndex]);
 
-                GameHandler.Instance.buffCount++;
+                GameHandler.Instance.IncrementBuffCount();
 
                 // Normal Mode
                 if(GameHandler.Instance.GetGamemode() == GameHandler.Gamemode.Normal)
@@ -116,6 +121,4 @@ public class BuffUI : MonoBehaviour
             });
         }
     }
-
-
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7662433117105303684}
   - component: {fileID: 1138651606253280360}
   - component: {fileID: 4060640409301518703}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4436103558041082491}
   - component: {fileID: 2926323552554626060}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: HitUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 3709949510160818662}
   - component: {fileID: 7488344023610622965}
   - component: {fileID: 8969840354187552293}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: HitToDestroyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,17 +178,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4631866216965615988}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4436103558041082491}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.4, y: 0.5}
-  m_SizeDelta: {x: 0, y: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0.52}
+  m_SizeDelta: {x: 1, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3709949510160818662
 CanvasRenderer:
@@ -229,8 +229,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279647202
-  m_fontColor: {r: 0.8867924, g: 0.23144467, b: 0.08784264, a: 1}
+    rgba: 4283563903
+  m_fontColor: {r: 0.49801442, g: 1, b: 0.3160377, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -247,8 +247,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
-  m_fontSizeBase: 1
+  m_fontSize: 1.5
+  m_fontSizeBase: 1.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4631866216965615988}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2de7cce4abb6b3c43909766792f159d4, type: 3}
   m_Name: 
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 5640676819418233466}
   - component: {fileID: 5772110138451758191}
   - component: {fileID: 463526313277597536}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ArmoredBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7f847446f2cf42049a1dc777f7a3600a, type: 2}
+  - {fileID: 2100000, guid: b5c50200749ef4b46b02bc0400f78c2d, type: 2}
+  - {fileID: 2100000, guid: 18b7dcbbb5e4f6240aa4294236568e9e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -407,7 +408,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.2, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &463526313277597536
 MonoBehaviour:
@@ -423,4 +424,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crashEffectObject: {fileID: 7997722193976721174, guid: 54721308710f9e846859fea0b38923c1,
     type: 3}
+  itemDropRate: 7
   hitToDestroy: 2
+  hitUI: {fileID: 2926323552554626060}

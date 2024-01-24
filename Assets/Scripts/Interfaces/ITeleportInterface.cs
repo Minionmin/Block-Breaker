@@ -4,7 +4,5 @@ using UnityEngine;
 
 public interface ITeleportInterface
 {
-    public Transform destinationTransform { get; set; }
-
-    public void TeleportObjectToAnother(Transform obj);
+    public void TeleportTo(Transform targetTransform);
 }

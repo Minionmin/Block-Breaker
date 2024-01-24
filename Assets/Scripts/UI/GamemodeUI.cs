@@ -20,11 +20,11 @@ public class GamemodeUI : MonoBehaviour
     private void Start()
     {
         normalButton.onClick.AddListener(() => {
-            fadePlane.DOFade(1.0f, 1.0f).onComplete = () => Loader.Load(Loader.LoaderScene.SampleScene);
+            fadePlane.DOFade(1.0f, 0.5f).onComplete = () => Loader.Load(SceneName.A_0);
         });
 
         endlessButton.onClick.AddListener(() => {
-            fadePlane.DOFade(1.0f, 1.0f).onComplete = () => Loader.Load(Loader.LoaderScene.Endless);
+            fadePlane.DOFade(1.0f, 0.5f).onComplete = () => Loader.Load(SceneName.ENDLESS);
         });
 
         Hide();
@@ -35,8 +35,8 @@ public class GamemodeUI : MonoBehaviour
         // Animation
         normalButton.transform.localScale = Vector3.zero;
         endlessButton.transform.localScale = Vector3.zero;
-        normalButton.transform.DOScale(Vector3.one, 1.0f).SetEase(Ease.OutBack);
-        endlessButton.transform.DOScale(Vector3.one, 1.0f).SetEase(Ease.OutBack);
+        normalButton.transform.DOScale(Vector3.one, 0.8f).SetEase(Ease.OutBack);
+        endlessButton.transform.DOScale(Vector3.one, 0.8f).SetEase(Ease.OutBack);
 
         gameObject.SetActive(true);
     }

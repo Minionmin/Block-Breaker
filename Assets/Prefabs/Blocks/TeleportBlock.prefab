@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5640676819418233466}
   - component: {fileID: 5772110138451758191}
   - component: {fileID: 6351130887821255917}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TeleportBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,6 +65,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 92ae2e7e57e0d624092b13bf62a366d9, type: 2}
   - {fileID: 2100000, guid: 9f17b9d2c779a2843a21151df3717607, type: 2}
+  - {fileID: 2100000, guid: 18b7dcbbb5e4f6240aa4294236568e9e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,7 +106,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.2, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6351130887821255917
 MonoBehaviour:
@@ -119,6 +120,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c97080d68dd2a94785bf3f8d426495c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crashEffectObject: {fileID: 6155761938219226631, guid: a64dd4bd7e0b5d045975a47fed6311d7,
-    type: 3}
-  teleportDestination: {fileID: 0}
+  crashEffectObject: {fileID: 195608, guid: 12a6633c0b4dd03479f75361301853b0, type: 3}
+  itemDropRate: 7

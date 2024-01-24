@@ -1,58 +1,54 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ArmoredBlock : Block, IHitInterface
+public class ArmoredBlock : Block
 {
+    /// <summary> Hit left to destroy this block </summary>
     [SerializeField] protected int hitToDestroy;
-    private HitUI hitUI;
 
-    Collision hitCollision;
+    /// <summary> UI for the remaining hit </summary>
+    [SerializeField] private HitUI hitUI;
 
-    private void Awake()
-    {
-        hitUI = GetComponentInChildren<HitUI>();
-    }
+    /// <summary> Check for ball's direction </summary>
+    // To prevent getting hit multiple times in a row (by piercing effect)
+    private Vector3 ballPreviousDir = Vector3.zero;
 
+    /// <summary> Initializing UI and SFX </summary>
     protected override void Start()
     {
         hitUI.SetHitText(hitToDestroy);
         base.Start();
     }
 
-    protected override void OnCollisionEnter(Collision collision)
+    /// <summary> Destroy if hitToDestroy becomes 0, otherwise minus it by 1 </summary>
+    public override void GetHit()
     {
-        hitCollision = collision;
-    }
+        var ball = GameHandler.Instance.ball;
 
-    // IHitInterface
-    // After implementing IHitInterface
-    public int GetHitToDestroy()
-    {
-        return hitToDestroy;
-    }
-
-    public void GetHit()
-    {
-        if(hitToDestroy > 0)
+        // Prevent destroy armored block immediately due to multiple collision when ball has piercing effect
+        if (ball.hasPiercing)
         {
-            hitToDestroy -= 1;
+            var ballCurDir = ball.moveDir;
+
+            // Ball has hit this object but hasn't passed it yet so we do nothing
+            if (ballPreviousDir == ballCurDir) return;
+
+            // Remember ball direction after getting hit
+            ballPreviousDir = ballCurDir;
         }
 
-        if (GetHitToDestroy() <= 0)
+        if (hitToDestroy > 1)
         {
-            base.PlayCrashEffect(hitCollision.GetContact(0).point, sfxs.blockDestroyedSFX);
-            hitCollision = null;
-            base.DestroyBlock();
+            hitToDestroy -= 1;
+            SetHit(hitToDestroy);
         }
         else
         {
-            // UI visual doesn't need to know about logic
-            hitUI.SetHitText(hitToDestroy);
+            base.GetHit();
         }
     }
-    // ## After Implementing IHitInterface 
 
+    /// <summary> Update hitToDestroy value and it's UI in GameHandler.cs </summary>
+    /// <param name="val"> hit left to destroy the block </param>
     public void SetHit(int val)
     {
         hitToDestroy = val;

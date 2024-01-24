@@ -6,7 +6,8 @@ TagManager:
   tags:
   - Music
   - LifeTextTag
-  - Summon
+  - Block
+  - Ball
   layers:
   - Default
   - TransparentFX
@@ -14,10 +15,10 @@ TagManager:
   - Wall
   - Water
   - UI
-  - NoDestroy
-  - 
-  - 
-  - 
+  - Bar
+  - Block
+  - Boss
+  - Deathzone
   - 
   - 
   - 

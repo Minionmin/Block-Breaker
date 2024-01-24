@@ -22,7 +22,7 @@ public class SpeedBuff : Buff
     public override void Apply()
     {
         // For readability
-        MoveBar moveBar = MoveBar.Instance;
+        Bar moveBar = Bar.Instance;
 
         // Add buff's value to bar's movement speed
         moveBar.SetBarMovespeed(moveBar.GetBarMovespeed() + buffValue);

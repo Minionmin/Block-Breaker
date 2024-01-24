@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7088012502604663987}
   - component: {fileID: 535159933663767086}
   - component: {fileID: 6859236064249056090}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: HitToDestroyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3416593024600890111}
   - component: {fileID: 6262390624423632091}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: HPBarUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 298436075746224322}
   - component: {fileID: 2384906727277271636}
   - component: {fileID: 8889929263673703873}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BossVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 4548089929892903058}
   - component: {fileID: 3269760460177318258}
   - component: {fileID: 5066642400990784667}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 8088902172404811849}
   - component: {fileID: 1042088224803608180}
   - component: {fileID: 6654537990394720649}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: HPGaugeBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,7 +528,7 @@ GameObject:
   - component: {fileID: 8886820042028522179}
   - component: {fileID: 3138332160651192280}
   - component: {fileID: 5006956639484704434}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,12 +565,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6f6150538adf4489773767db841cbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitToDestroy: 14
-  teleportEffect: {fileID: 6155761938219226631, guid: a64dd4bd7e0b5d045975a47fed6311d7,
-    type: 3}
-  teleportDestinations:
-  - {fileID: 0}
-  - {fileID: 0}
+  bossHP: 20
+  teleportEffect: {fileID: 195608, guid: 12a6633c0b4dd03479f75361301853b0, type: 3}
+  hitUI: {fileID: 8142441643698426074}
+  hpBarUI: {fileID: 6262390624423632091}
+  summonParent: {fileID: 4410688674507733481}
 --- !u!65 &5006956639484704434
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -603,7 +602,7 @@ GameObject:
   - component: {fileID: 4698789700178073600}
   - component: {fileID: 6717937076857663356}
   - component: {fileID: 5475155443503651193}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: HPGauge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -676,9 +675,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5945033358562989702}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Summons
-  m_TagString: Summon
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -717,7 +716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7185246598759886703}
   - component: {fileID: 8142441643698426074}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: HitUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -765,6 +764,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5945033358562989702}
     m_Modifications:
+    - target: {fileID: 1487353622302411567, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089625411491405537, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631866216965615988, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7488344023610622965, guid: 5dcd411c5e3c51d4385607a0362b41fb,
         type: 3}
       propertyPath: m_fontSize
@@ -830,6 +844,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArmoredBlock (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 8565046391511416636, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8591150539357045404, guid: 5dcd411c5e3c51d4385607a0362b41fb,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -854,6 +873,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5945033358562989702}
     m_Modifications:
+    - target: {fileID: 1487353622302411567, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089625411491405537, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631866216965615988, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7488344023610622965, guid: 5dcd411c5e3c51d4385607a0362b41fb,
         type: 3}
       propertyPath: m_fontSize
@@ -918,6 +952,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ArmoredBlock (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8565046391511416636, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8591150539357045404, guid: 5dcd411c5e3c51d4385607a0362b41fb,
         type: 3}
@@ -998,6 +1037,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExplodeBlock (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 8565046391511416636, guid: a7613d0b75b7db84b9e55432db9979e4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1017,6 +1061,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5945033358562989702}
     m_Modifications:
+    - target: {fileID: 1487353622302411567, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089625411491405537, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631866216965615988, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7488344023610622965, guid: 5dcd411c5e3c51d4385607a0362b41fb,
         type: 3}
       propertyPath: m_fontSize
@@ -1082,6 +1141,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArmoredBlock (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8565046391511416636, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8591150539357045404, guid: 5dcd411c5e3c51d4385607a0362b41fb,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -1106,6 +1170,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5945033358562989702}
     m_Modifications:
+    - target: {fileID: 1487353622302411567, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089625411491405537, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631866216965615988, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7488344023610622965, guid: 5dcd411c5e3c51d4385607a0362b41fb,
         type: 3}
       propertyPath: m_fontSize
@@ -1170,6 +1249,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ArmoredBlock (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8565046391511416636, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8591150539357045404, guid: 5dcd411c5e3c51d4385607a0362b41fb,
         type: 3}
@@ -1250,6 +1334,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExplodeBlock (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8565046391511416636, guid: a7613d0b75b7db84b9e55432db9979e4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1324,6 +1413,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExplodeBlock (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8565046391511416636, guid: a7613d0b75b7db84b9e55432db9979e4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1343,6 +1437,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5945033358562989702}
     m_Modifications:
+    - target: {fileID: 1487353622302411567, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089625411491405537, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631866216965615988, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7488344023610622965, guid: 5dcd411c5e3c51d4385607a0362b41fb,
         type: 3}
       propertyPath: m_fontSize
@@ -1408,6 +1517,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArmoredBlock (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 8565046391511416636, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8591150539357045404, guid: 5dcd411c5e3c51d4385607a0362b41fb,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -1432,6 +1546,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5945033358562989702}
     m_Modifications:
+    - target: {fileID: 1487353622302411567, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089625411491405537, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631866216965615988, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7488344023610622965, guid: 5dcd411c5e3c51d4385607a0362b41fb,
         type: 3}
       propertyPath: m_fontSize
@@ -1496,6 +1625,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ArmoredBlock (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8565046391511416636, guid: 5dcd411c5e3c51d4385607a0362b41fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8591150539357045404, guid: 5dcd411c5e3c51d4385607a0362b41fb,
         type: 3}

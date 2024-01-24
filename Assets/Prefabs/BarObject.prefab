@@ -52,6 +52,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   bar: {fileID: 4577791385679096377}
+  ballSpawnPoint: {fileID: 4583500751108027693}
 --- !u!1 &7109877393096284747
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,7 +64,7 @@ GameObject:
   - component: {fileID: 7999490106737692628}
   - component: {fileID: 5483035090776795990}
   - component: {fileID: 3214892858538268397}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArrowImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +79,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7109877393096284747}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 1.29}
+  m_LocalPosition: {x: 0, y: 0, z: 1.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -153,7 +154,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.5}
-  m_LocalScale: {x: 0.1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1079611430224474452}
@@ -171,7 +172,7 @@ GameObject:
   - component: {fileID: 4337073757417618786}
   - component: {fileID: 1164318743064010063}
   - component: {fileID: 6599020311047710408}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArrowUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,10 +284,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1079611430224474452}
     m_Modifications:
+    - target: {fileID: 588287387006411435, guid: 41355fbb5f424154697332d4dbbf69e6,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 588287387006411435, guid: 41355fbb5f424154697332d4dbbf69e6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ab10838f5f2e11640979feaeacc18a3c, type: 2}
+    - target: {fileID: 588287387006411435, guid: 41355fbb5f424154697332d4dbbf69e6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 18b7dcbbb5e4f6240aa4294236568e9e, type: 2}
     - target: {fileID: 2627348058484272842, guid: 41355fbb5f424154697332d4dbbf69e6,
         type: 3}
       propertyPath: m_Name
       value: Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2627348058484272842, guid: 41355fbb5f424154697332d4dbbf69e6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5556688906089187661, guid: 41355fbb5f424154697332d4dbbf69e6,
         type: 3}
@@ -345,7 +366,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2627348058484272842, guid: 41355fbb5f424154697332d4dbbf69e6,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5705031213237816875}
+      addedObject: {fileID: 2757597465997918777}
     - targetCorrespondingSourceObject: {fileID: 2627348058484272842, guid: 41355fbb5f424154697332d4dbbf69e6,
         type: 3}
       insertIndex: -1
@@ -363,8 +384,8 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8258130691404997492}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &5705031213237816875
-CapsuleCollider:
+--- !u!65 &2757597465997918777
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -381,10 +402,8 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.2
-  m_Direction: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1693142925887661787
 Rigidbody:

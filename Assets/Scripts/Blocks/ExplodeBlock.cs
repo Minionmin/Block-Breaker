@@ -1,31 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ExplodeBlock : Block
 {
-    [SerializeField] private float explosionSpeed;
+    /// <summary> Speed multiplier when the block exploded </summary>
+    [SerializeField] private float explosionSpeedMultiplier;
 
-    protected override void OnCollisionEnter(Collision collision)
+    public override void GetHit()
     {
-        Explode(collision);
-        PlayCrashEffect(collision.GetContact(0).point, sfxs.explodeBlockDestroyedSFX);
-        DestroyBlock();
+        DropItem();
+        Explode();
+        PlayCrashEffect(transform.position, sfxs.explodeBlockDestroyedSFX);
+        GameHandler.Instance.DestroyBlock(this);
     }
 
-    private void Explode(Collision collision)
+    /// <summary> Make the ball significantly faster by explosion </summary>
+    private void Explode()
     {
-        if(collision.gameObject.TryGetComponent<BallStart>(out BallStart ball))
+        // Play Camera shake effect when exploded
+        CameraManager.Instance.Shake(0.3f, 0.4f, 30);
+
+        Ball ball = GameHandler.Instance.ball;
+
+        // If the ball hasn't exploded yet
+        if (!ball.hasExploded)
         {
-            if(!ball.hasExploded)
-            {
-                Vector3 explosionDirection = collision.GetContact(0).point - this.transform.position;
-                Vector3 explosionVectorNormalize = new Vector3(explosionDirection.x, 0f, explosionDirection.z);
-                explosionVectorNormalize.Normalize();
-                ball.rb.AddForce(explosionDirection * explosionSpeed, ForceMode.VelocityChange);
-                ball.hasExploded = true;
-            }
+            // Multiply ball speed, raise the flag and activate trail VFX
+            ball.Explode(ball.GetBallSpeed() * explosionSpeedMultiplier);
+
         }
     }
 }

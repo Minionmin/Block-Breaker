@@ -1,7 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,30 +8,16 @@ public static class Loader
     public static GameObject musicHandler;
     public static AudioSource audioSource;
 
-    public enum LoaderScene
-    {
-        MainMenu,
-        LoadingScene,
-        SampleScene,
-        Level1,
-        Level2,
-        Level3,
-        Level4,
-        Boss,
-        Endless,
-        GameOverScene
-    }
-
-    private static LoaderScene targetScene;
+    private static string targetScene;
     public static string failedScene;
 
-    public static void Load(LoaderScene targetScene)
+    public static void Load(string sceneName)
     {
-        Loader.targetScene = targetScene;
+        targetScene = sceneName;
 
         PauseBGMBeforeLoadingScreen();
 
-        SceneManager.LoadScene(LoaderScene.LoadingScene.ToString());
+        SceneManager.LoadScene(SceneName.LOADING_SCENE);
     }
 
     public static void LoadFailedScene()
@@ -58,36 +41,34 @@ public static class Loader
         audioSource.Pause();
     }
 
-    public static LoaderScene GetNextLevel()
+    public static string GetNextLevel()
     {
         string currentScene = SceneManager.GetActiveScene().name;
         
-        if (currentScene == "SampleScene")
+        if (currentScene == SceneName.A_0)
         {
-            return LoaderScene.Level1;
+            return SceneName.A_1;
         }
-        else if (currentScene == "Level1")
+        else if (currentScene == SceneName.A_1)
         {
-            return LoaderScene.Level2;
+            return SceneName.A_2;
         }
-        else if (currentScene == "Level2")
+        else if (currentScene == SceneName.A_2)
         {
-            return LoaderScene.Level3;
+            return SceneName.A_3;
         }
-        else if (currentScene == "Level3")
+        else if (currentScene == SceneName.A_3)
         {
-            return LoaderScene.Level4;
+            return SceneName.A_4;
         }
-        else if (currentScene == "Level4")
+        else if (currentScene == SceneName.A_4)
         {
-            return LoaderScene.Boss;
+            return SceneName.A_BOSS;
         }
         else
         {
             Debug.LogError("Not a valid Level");
+            return SceneName.MAIN_MENU;
         }
-
-        LoaderScene nextScene = LoaderScene.MainMenu;
-        return nextScene;
     }
 }

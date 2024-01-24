@@ -28,7 +28,7 @@ public class NextMatchUI : MonoBehaviour
 
     private void LoadNextLevel()
     {
-        fadePlane.DOFade(1.0f, 1.0f)
+        fadePlane.DOFade(1.0f, 0.5f)
            .onComplete = () => 
            {
                GameHandler.Instance.ActivateBall();
@@ -41,9 +41,10 @@ public class NextMatchUI : MonoBehaviour
         fadePlane.DOFade(1.0f, 1.0f)
             .onComplete = () =>
             {
-                SceneManager.LoadScene(Loader.LoaderScene.MainMenu.ToString());
-                DontDestroy doNotDestroyParent = GameObject.Find("Do Not Destroy").GetComponent<DontDestroy>();
-                Destroy(doNotDestroyParent.gameObject);
+                SceneManager.LoadScene(SceneName.MAIN_MENU);
+                // We used FindObjectWithTag in the previous version but for the better performance
+                // we are now using SerializeField instead
+                Destroy(DontDestroy.Instance.gameObject);
             };
     }
 
@@ -51,11 +52,11 @@ public class NextMatchUI : MonoBehaviour
     {
         Vector3 nextOriginalPosition = nextButton.transform.localPosition;
         nextButton.transform.localPosition = new Vector3(nextButton.transform.localPosition.x, -1000.0f, nextButton.transform.localPosition.z);
-        nextButton.transform.DOLocalMove(nextOriginalPosition, 2.0f, false).SetEase(Ease.OutBack, 1.0f);
+        nextButton.transform.DOLocalMove(nextOriginalPosition, 1.0f, false).SetEase(Ease.OutBack, 0.5f);
 
         Vector3 mainmenuOriginalPosition = mainMenuButton.transform.localPosition;
         mainMenuButton.transform.localPosition = new Vector3(mainMenuButton.transform.localPosition.x, -1000.0f, mainMenuButton.transform.localPosition.z);
-        mainMenuButton.transform.DOLocalMove(mainmenuOriginalPosition, 2.0f, false).SetEase(Ease.OutBack, 1.0f);
+        mainMenuButton.transform.DOLocalMove(mainmenuOriginalPosition, 1.0f, false).SetEase(Ease.OutBack, 0.5f);
 
         gameObject.SetActive(true);
     }
