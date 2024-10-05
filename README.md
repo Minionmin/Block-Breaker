@@ -1,6 +1,8 @@
 # Block-Breaker
 Typical block breaking game but with Roguelite mechanic and boss fights
 
+![image](https://github.com/user-attachments/assets/7c41ad87-2b4e-419e-9d4c-9aa71d52837f)
+
 ![image](https://github.com/user-attachments/assets/5f4bafe9-bcd6-4ac7-81e9-1285ca41b490)
 
 **Genre:** Action, Arcade <br>
